@@ -1,21 +1,15 @@
 /**
- * Font Definitions
- * Theme-specific font loading with next/font
- *
- * To replace a font:
- * 1. Import the new font from next/font/google
- * 2. Update the font definition below
- * 3. The theme system will automatically use the new font
+ * Font Loader
+ * Loads fonts using design-system configurations
  */
 
-import { Outfit, Manrope, Space_Grotesk, Lora, JetBrains_Mono, Fira_Code, Instrument_Sans } from 'next/font/google';
+import { Inter, Manrope, Instrument_Sans, Lora, JetBrains_Mono, Space_Grotesk, Fira_Code } from 'next/font/google';
 
 /**
- * Studio Theme Fonts (Professional, modern, geometric)
- * Outfit: Geometric sans with personality for headings
- * Manrope: Rounded, friendly, professional for body text
+ * Studio Theme Fonts
+ * Variable names from @ecosystem/design-system/fonts
  */
-export const studioHeading = Outfit({
+export const studioHeading = Inter({
   subsets: ['latin'],
   variable: '--font-studio-heading',
   display: 'swap',
@@ -37,7 +31,7 @@ export const studioMono = JetBrains_Mono({
 });
 
 /**
- * Sage Theme Fonts (Calm, organic, feminine)
+ * Sage Theme Fonts
  */
 export const sageSans = Instrument_Sans({
   subsets: ['latin'],
@@ -62,7 +56,7 @@ export const sageMono = JetBrains_Mono({
 });
 
 /**
- * Volt Theme Fonts (Bold, electric, masculine)
+ * Volt Theme Fonts
  */
 export const voltSans = Space_Grotesk({
   subsets: ['latin'],
@@ -80,7 +74,7 @@ export const voltMono = Fira_Code({
 
 /**
  * All font variables combined
- * These are applied to the root HTML element
+ * Apply to root HTML element className
  */
 export const allFontVariables = [
   studioHeading.variable,
@@ -92,24 +86,3 @@ export const allFontVariables = [
   voltSans.variable,
   voltMono.variable,
 ].join(' ');
-
-/**
- * Font variables by theme
- * Used by the theme system to apply the correct fonts
- */
-export const fontVariablesByTheme = {
-  studio: {
-    heading: '--font-studio-heading',
-    body: '--font-studio-body',
-    mono: '--font-studio-mono',
-  },
-  sage: {
-    sans: '--font-sage-sans',
-    serif: '--font-sage-serif',
-    mono: '--font-sage-mono',
-  },
-  volt: {
-    sans: '--font-volt-sans',
-    mono: '--font-volt-mono',
-  },
-} as const;
